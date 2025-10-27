@@ -13,12 +13,13 @@ This project aims to infer an individual's mental strategy (holistic vs. pieceme
 - Seaborn
 - HMMlearn
 - Flask
+- tqdm
 
 ### Installation
 
 1. **Clone the repository:**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/PrasadMagdum08/IITB_T1_G_17_The_Null_Set_Inferring_Mental_Strategy.git
    ```
 2. **Create a virtual environment:**
    ```bash
@@ -40,11 +41,32 @@ This project aims to infer an individual's mental strategy (holistic vs. pieceme
 
 ### Usage
 
-1. **Data Preprocessing and Feature Engineering:**
-   - Open and run the `notebooks/data_analysis.ipynb` notebook to process the raw data and generate the `merged_participants.csv` file.
+To run the entire data processing and model training pipeline, run the `main.py` script:
 
-2. **Model Training:**
-   - Open and run the `notebooks/model_experiments.ipynb` notebook to train the KMeans clustering model and save it as `src/models/kmeans_model.pkl`.
+```bash
+python main.py
+```
+
+This will:
+1. Preprocess the raw data from the `STData` directory.
+2. Extract features from the preprocessed data.
+3. Train a KMeans clustering model.
+4. Save the trained model to `src/models/kmeans_model.pkl`.
+
+### Dashboard
+
+To view the results on the dashboard, run the `run.py` script:
+
+```bash
+python run.py
+```
+
+Then, open your web browser and navigate to `http://127.0.0.1:5000/`.
+
+The dashboard displays three charts:
+- **Holistic Cluster:** A bar chart showing the `fixation_mean` and `saccade_mean` for participants in the holistic cluster.
+- **Piecemeal Cluster:** A bar chart showing the `fixation_mean` and `saccade_mean` for participants in the piecemeal cluster.
+- **Holistic vs. Piecemeal:** A pie chart showing the proportion of participants in each cluster.
 
 ### Model
 
